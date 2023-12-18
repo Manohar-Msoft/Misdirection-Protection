@@ -5,7 +5,7 @@
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Misdirection-Protection"/>
-  <Description DefaultValue="A template to get started."/>
+  <Description DefaultValue="An Outlook add-in to prevent Misdirected Mails"/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
@@ -17,13 +17,13 @@
   </Hosts>
   <Requirements>
     <Sets>
-      <Set Name="Mailbox" MinVersion="1.1"/>
+      <Set Name="Mailbox" MinVersion="1.9"/>
     </Sets>
   </Requirements>
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://localhost:3000/taskpane.html"/>
+        <SourceLocation DefaultValue="https://localhost:3000/commands.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -43,18 +43,18 @@
     <Hosts>
       <Host xsi:type="MailHost">
         <!-- Event-based activation happens in a lightweight runtime.-->
-        <Runtimes>
+        <!-- <Runtimes> -->
           <!-- HTML file including reference to or inline JavaScript event handlers.
                This is used by Outlook on the web and on the new Mac UI. -->
-          <Runtime resid="WebViewRuntime.Url">
+          <!-- <Runtime resid="WebViewRuntime.Url"> -->
             <!-- JavaScript file containing event handlers. This is used by Outlook on Windows. -->
-            <Override type="javascript" resid="JSRuntime.Url"/>
-          </Runtime>
-        </Runtimes>
+            <!-- <Override type="javascript" resid="JSRuntime.Url"/> -->
+          <!-- </Runtime>
+        </Runtimes> -->
         <DesktopFormFactor>
           <!-- Configure other command surface extension points for add-in command support, if needed. -->
           <FunctionFile resid="Commands.Url" />
-          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+          <!-- <ExtensionPoint xsi:type="MessageComposeCommandSurface">
             <OfficeTab id="TabDefault">
               <Group id="msgComposeGroup">
                 <Label resid="GroupLabel" />
@@ -90,14 +90,16 @@
                 </Control>
               </Group>
             </OfficeTab>
-          </ExtensionPoint>
+          </ExtensionPoint> -->
           <!-- Enable launching the add-in on the included event. -->
-          <ExtensionPoint xsi:type="LaunchEvent">
-            <LaunchEvents>
+          <!-- <ExtensionPoint xsi:type="LaunchEvent"> -->
+          <ExtensionPoint xsi:type="Events">
+            <!-- <LaunchEvents>
               <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler" SendMode="PromptUser"/>
-            </LaunchEvents>
+            </LaunchEvents> -->
+             <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="onMessageSendHandler" />
             <!-- Identify the runtime to be used (also referenced by the Runtime element). -->
-            <SourceLocation resid="WebViewRuntime.Url"/>
+            <!-- <SourceLocation resid="WebViewRuntime.Url"/> -->
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
@@ -111,9 +113,9 @@
       <bt:Urls>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html" />
         <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane.html" />
-        <bt:Url id="WebViewRuntime.Url" DefaultValue="https://localhost:3000/commands.html" />
+        <!-- <bt:Url id="WebViewRuntime.Url" DefaultValue="https://localhost:3000/commands.html" /> -->
         <!-- Entry needed for Outlook on Windows. -->
-        <bt:Url id="JSRuntime.Url" DefaultValue="https://localhost:3000/launchevent.js" />
+        <!-- <bt:Url id="JSRuntime.Url" DefaultValue="https://localhost:3000/launchevent.js" /> -->
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Contoso Add-in"/>

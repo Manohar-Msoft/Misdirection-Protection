@@ -1,0 +1,1 @@
+Office.onReady().then((()=>{Office.context.ui.messageParent(JSON.stringify({messageType:"initialise",message:"Dialog is ready"})),dontsend=function(){const e=JSON.stringify({messageType:"dialogClosed"});Office.context.ui.messageParent(e)}}));

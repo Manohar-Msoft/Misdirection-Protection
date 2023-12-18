@@ -60,12 +60,21 @@ module.exports = async (env, options) => {
             from: "./src/launchevent/launchevent.js",
             to: "launchevent.js",
           },
+          {
+            from: "./src/launchevent/dialog.js",
+            to: "dialog.js",
+          },
         ],
       }),
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
         template: "./src/taskpane/taskpane.html",
         chunks: ["polyfill", "taskpane"],
+      }),
+      new HtmlWebpackPlugin({
+        filename: "dialog.html",
+        template: "./src/launchevent/dialog.html",
+        chunks: ["polyfill", "dialog"]
       }),
       new CopyWebpackPlugin({
         patterns: [

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>External Recipients Found!!</title>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="text/javascript" src="launchevent.js"></script>
+    <script type="text/javascript" src="dialog.js"></script>
+    <link rel="stylesheet" type="text/css" href="dialog.css">
+</head>
+<body>
+    <h1>Please check the Recipients</h1>
+    <p>Choose an action:</p>
+
+    <!-- <button onclick="sendMessage('dontSend')">Don't Send</button> -->
+    <!-- <button onclick="sendMessage('anywaysSend')">Anyways Send</button> -->
+    <input type="button" id = 'dontSend' class='submit_button' value="Don't Send" onclick="dontsend()"/>
+    <input type="button" id = 'anywaysSend' class='submit_button' value="Send Anyways" onclick="sendanyways()" disabled/>
+
+    <script type="text/javascript">
+        // Function to send a message back to the add-in
+        // function sendMessage(action) {
+        //     Office.context.ui.messageParent(action);
+        // }
+        document.addEventListener("DOMContentLoaded", function() {
+        // Enable the button after 10 seconds
+        setTimeout(function() {
+            // document.getElementById("dontSend").removeAttribute("disabled"),
+            document.getElementById("anywaysSend").removeAttribute("disabled");
+        }, 10000); // 10 seconds in milliseconds
+    });
+    
+    </script>
+</body>
+</html>
