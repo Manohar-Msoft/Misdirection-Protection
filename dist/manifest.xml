@@ -94,7 +94,7 @@
           <!-- Enable launching the add-in on the included event. -->
           <ExtensionPoint xsi:type="LaunchEvent">
             <LaunchEvents>
-              <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler" SendMode="PromptUser" />
+              <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler" SendMode="PromptUser"/>
             </LaunchEvents>
             <!-- Identify the runtime to be used (also referenced by the Runtime element). -->
             <SourceLocation resid="WebViewRuntime.Url"/>
