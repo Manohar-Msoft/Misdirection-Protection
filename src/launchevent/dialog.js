@@ -4,9 +4,10 @@ Office.onReady().then(() => {
     Office.context.ui.messageParent(JSON.stringify({ messageType: 'initialise', message: 'Dialog is ready' }))
     
     //  Recieve emails from host page.
-    // Office.context.ui.addHandlerAsync(
-    //   Office.EventType.DialogParentMessageReceived, createEmailCheckBoxList)
-    dontsend = function(){
+    Office.context.ui.addHandlerAsync(
+      Office.EventType.DialogParentMessageReceived, displaymessage)
+    
+      dontsend = function(){
         const cancelMessage = { messageType: 'cancel' }
         Office.context.ui.messageParent(JSON.stringify(cancelMessage))
     }
@@ -16,5 +17,19 @@ Office.onReady().then(() => {
     }
     
   })
-  
+
+/**
+ * Function that creates the check box form from the recipients.
+ * @param {object} arg - The message object from the host pages that contains the recipient data.
+ */
+function displaymessage(arg){
+    const allexternalEmails = JSON.parse(arg.message)
+    recipientsTo = allexternalEmails[0]
+    recipientsCc = allexternalEmails[1]
+    recipientsBcc = allexternalEmails[2] 
+    document.getElementById("toContainer").append(recipientsTo)
+    document.getElementById("ccContainer").append(recipientsCc)
+    document.getElementById("bccContainer").append(recipientsBcc)
+        
+}       
   

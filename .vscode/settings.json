@@ -4,6 +4,8 @@
       "javascriptreact",
       "typescript"
     ],
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "appService.defaultWebAppToDeploy": "/subscriptions/04b9a20e-f841-437b-924b-dcc3fab8d067/resourceGroups/OutlookAddin/providers/Microsoft.Web/sites/MisdirectionProtection",
+    "appService.deploySubpath": "."
   }
   

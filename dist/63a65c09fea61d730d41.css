@@ -7,11 +7,6 @@ body {
     background-color: #f0f0f0; 
 }
 
-#wrapper {
-	width: 75%;
-	margin: auto;
-}
-
 header {
     background-color: #3498db; 
     text-align: center;
@@ -19,10 +14,10 @@ header {
     color: #fff; 
 }
 
-h2 {
+h1 {
     background-color: #3498db; 
     text-align: center;
-    padding: 10px;
+    padding: 20px;
     color: #fff; 
     margin: 0; 
 }

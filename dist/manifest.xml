@@ -92,19 +92,12 @@
             </OfficeTab>
           </ExtensionPoint> -->
           <!-- Enable launching the add-in on the included event. -->
-<<<<<<< HEAD
           <!-- <ExtensionPoint xsi:type="LaunchEvent"> -->
           <ExtensionPoint xsi:type="Events">
             <!-- <LaunchEvents>
               <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler" SendMode="PromptUser"/>
             </LaunchEvents> -->
              <Event Type="ItemSend" FunctionExecution="synchronous" FunctionName="onMessageSendHandler" />
-=======
-          <ExtensionPoint xsi:type="LaunchEvent">
-            <LaunchEvents>
-              <LaunchEvent Type="OnMessageSend" FunctionName="onMessageSendHandler" SendMode="PromptUser"/>
-            </LaunchEvents>
->>>>>>> f82c358f9e7846f998ee9604eaac358d3605f66d
             <!-- Identify the runtime to be used (also referenced by the Runtime element). -->
             <!-- <SourceLocation resid="WebViewRuntime.Url"/> -->
           </ExtensionPoint>
